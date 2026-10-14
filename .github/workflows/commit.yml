@@ -1,0 +1,15 @@
+name: Commit Success
+
+on:
+  push:
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code du repo
+        uses: actions/checkout@v7
+
+      - name: Lancer le script Python
+        run: |
+          python3 commit_success.py
