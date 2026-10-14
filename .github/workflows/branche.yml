@@ -1,0 +1,17 @@
+name: Afficher la branche
+
+on:
+  push:
+    branches:
+      - Dev
+      - Val
+      - Prod
+  workflow_dispatch:
+
+jobs:
+  branche:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher le nom de la branche
+        run: |
+          echo "Branche : $GITHUB_REF_NAME"
