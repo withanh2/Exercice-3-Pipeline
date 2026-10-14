@@ -1,0 +1,30 @@
+name: Identite
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  afficher-nom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher le nom
+        env:
+          NOM: ${{ vars.NOM }}
+        run: echo "Nom : $NOM"
+
+  afficher-prenom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher le prénom
+        env:
+          PRENOM: ${{ vars.PRENOM }}
+        run: echo "Prénom : $PRENOM"
+
+  afficher-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher l'email
+        env:
+          EMAIL: ${{ vars.EMAIL }}
+        run: echo "Email : $EMAIL"
