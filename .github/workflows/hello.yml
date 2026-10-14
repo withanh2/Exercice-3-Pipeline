@@ -1,0 +1,12 @@
+name: Hello World            # nom affiché dans l'onglet Actions
+
+on:                          # QUAND la pipeline se déclenche
+  push:                      # à chaque push, sur n'importe quelle branche
+  workflow_dispatch:         # + un bouton pour la lancer à la main
+
+jobs:                        # la liste des jobs
+  hello:                     # identifiant du job (tu choisis le nom)
+    runs-on: ubuntu-latest   # la VM fournie par GitHub
+    steps:                   # liste des étapes -> d'où les tirets
+      - name: Dire bonjour
+        run: echo "Hello World"
