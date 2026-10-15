@@ -1,1 +1,1 @@
-echo 'print("Commit success!")' > commit_success.py
+print("Commit success!")
