@@ -16,7 +16,18 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v7
+
+      - name: Linter le HTML
+        run: |
+          npx --yes htmlhint "site/**/*.html"
+
   build:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Récupérer le code
