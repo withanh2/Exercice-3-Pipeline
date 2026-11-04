@@ -1,0 +1,23 @@
+- name: Déployer Nginx avec le Hello World
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Installer Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Copier la page Hello World
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/../site/index.html"
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+
+    - name: Démarrer Nginx et l'activer au boot
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
